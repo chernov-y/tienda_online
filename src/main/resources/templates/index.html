@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Acceso - Tienda Online</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
+
 <body>
 
-    <section>
-        <h1>Log In</h1>
-        <form th:action="@{/login}" method="post">
-            <div>
-                <label for="nick">User (Nick):</label>
-                <input type="text" id="nick" name="nick" required>
-            </div>
-            
-            <div>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
+    <header class="navbar-log">
+        <div class="nav-center">
+            <h1>Online Store</h1>
+            <p>ONLINE STORE - Your best choice for online shopping</p>
+        </div>
+    </header>
 
-            <div th:if="${error}" style="color: red;">
-                <p th:text="${error}"></p>
-            </div>
+    <main class="login-row">
 
-            <button type="submit">Sign In</button>
-        </form>
-    </section>
+        <section class="auth-card">
+            <h2>Log In</h2>
+            <form th:action="@{/login}" method="post">
+                <div class="input-group">
+                    <label for="nick">User (Nick):</label>
+                    <input type="text" id="nick" name="nick" required>
+                </div>
 
-    <hr>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
 
-    <section>
-        <h2>¿Dont have an account?</h2>
-        <p>Register to make purchases and view offers.</p>
-        <a th:href="@{/register}">Go to Register Form</a>
-    </section>
+                <div th:if="${error}" class="error-msg">
+                    <p th:text="${error}"></p>
+                </div>
+
+                <button type="submit" class="btn-primary">Sign In</button>
+            </form>
+        </section>
+
+        <section class="auth-card info-card">
+            <h2>New here?</h2>
+            <p>Register to make purchases, track orders and view exclusive offers.</p>
+            <a th:href="@{/register}" class="btn-secondary">Create an Account</a>
+        </section>
+
+    </main>
 
 </body>
+
 </html>

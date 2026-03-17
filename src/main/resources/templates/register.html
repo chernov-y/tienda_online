@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Register of User</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
+
 <body>
+    <header class="navbar-log">
+        <div class="nav-center">
+            <h1>Online Store</h1>
+            <p>Online Store </p>
+        </div>
+
+
+    </header>
 
     <section>
         <h1>Create Account</h1>
         <p style="text-align: center; color: #666;">Enter your details to start shopping</p>
-        
+
         <form th:action="@{/register}" th:object="${user}" method="post">
-            
+
             <div class="form-group">
                 <label for="nick">Nickname</label>
                 <input type="text" id="nick" th:field="*{nick}" placeholder="Ex: JuanP88" required>
@@ -54,4 +64,5 @@
     </section>
 
 </body>
+
 </html>

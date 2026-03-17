@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Datos del Usuario</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
+
 <body>
     <h1>Datos guardados en la Sesión HTTP</h1>
     <div th:if="${perfil != null}">
@@ -17,4 +19,5 @@
     <br>
     <a href="/register">Volver al registro</a>
 </body>
+
 </html>

@@ -1,4 +1,4 @@
-/* Estilo General */
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f7f6;
@@ -7,7 +7,7 @@ body {
     line-height: 1.6;
 }
 
-/* Contenedores de Formulario (Login y Registro) */
+
 section {
     max-width: 400px;
     margin: 50px auto;
@@ -23,7 +23,7 @@ h1, h2 {
     margin-bottom: 1.5rem;
 }
 
-/* Campos de entrada */
+
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -34,10 +34,10 @@ input[type="number"] {
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; /* Importante para el ancho */
+    box-sizing: border-box; 
 }
 
-/* Botones */
+
 button {
     width: 100%;
     background-color: #2980b9;
@@ -54,7 +54,7 @@ button:hover {
     background-color: #3498db;
 }
 
-/* Diseño de la Tienda (Grid) */
+
 main ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -85,7 +85,7 @@ header button {
     width: auto;
     background-color: #e74c3c;
 }
-/* Ajuste para que los campos en línea no se amontonen */
+
 div[style*="display: flex"] {
     margin-bottom: 0;
 }
@@ -94,13 +94,13 @@ div[style*="display: flex"] input {
     margin-top: 5px;
 }
 
-/* Mejora visual de los placeholders */
+
 ::placeholder {
     color: #ccc;
     font-size: 0.85rem;
 }
 
-/* Estilo para los enlaces de navegación */
+
 a {
     color: #2980b9;
     text-decoration: none;
@@ -111,17 +111,17 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Contenedor Padre */
+
 .contenedor-grid {
     display: grid;
-    /* Crea 3 columnas iguales */
+    
     grid-template-columns: repeat(3, 1fr);
-    /* Espacio entre las tarjetas */
+    
     gap: 30px; 
     padding: 20px;
 }
 
-/* Estilo de cada Tarjeta */
+
 .card-producto {
     background: white;
     border: 1px solid #eaeaea;
@@ -136,11 +136,11 @@ a:hover {
     transform: translateY(-5px);
 }
 
-/* Control de las imágenes */
+
 .imagen-box img {
     width: 100%;
     height: 200px;
-    /* Evita que la imagen se estire feo */
+    
     object-fit: cover; 
     border-radius: 5px;
 }
@@ -152,7 +152,7 @@ a:hover {
 }
 
 .btn-comprar {
-    background-color: #ffc439; /* Color PayPal */
+    background-color: #ffc439; 
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
@@ -161,7 +161,7 @@ a:hover {
     width: 100%;
 }
 
-/* El mensaje bonito */
+
 .alerta-exito {
     background-color: #d4edda;
     color: #155724;
@@ -174,13 +174,13 @@ a:hover {
     font-weight: bold;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     
-    /* Propiedades iniciales */
+
     opacity: 1;
     visibility: visible;
     height: auto;
 }
 
-/* La animación mejorada */
+
 .fade-out {
     animation: desaparecer 5s forwards;
 }
@@ -193,7 +193,7 @@ a:hover {
     80% {
         opacity: 1;
         transform: translateY(0);
-        /* Mantiene el tamaño durante 4 segundos */
+       
     }
     99% {
         opacity: 0;
@@ -212,22 +212,120 @@ a:hover {
     }
 }
 
-/* Contenedor principal del Navbar */
+
 .navbar {
     display: flex;
-    justify-content: space-between; /* Empuja nav-left a la izq y nav-right a la der */
-    align-items: center;           /* Centra verticalmente los elementos */
+    justify-content: space-between; 
+    align-items: center;          
     padding: 1rem 2rem;
-    background-color: #2c3e50;      /* Color elegante */
+    background-color: #2c3e50;      
     color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Bloque Izquierdo */
+
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 20px; /* Espacio entre el título y el nombre */
+    gap: 20px; 
+}
+
+
+.navbar-log {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.navbar-log h1 { margin: 0; }
+
+
+.login-row {
+    display: flex;
+    justify-content: center; 
+    align-items: stretch;    
+    gap: 40px;              
+    max-width: 1000px;
+    margin: 0 auto;          
+    padding: 20px;
+}
+
+
+.auth-card {
+    flex: 1;                
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}
+
+
+.btn-primary, .btn-secondary {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    border: 1px solid #bdc3c7;
+    margin-top: 20px;
+}
+
+.error-msg {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+
+@media (max-width: 768px) {
+    .login-row {
+        flex-direction: column;
+    }
+}
+
+
+
+.nav-center {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    align-items: center;
+    font-size: larger;
 }
 
 .nav-left h1 {
@@ -235,14 +333,14 @@ a:hover {
     font-size: 1.5rem;
 }
 
-/* Bloque Derecho */
+
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 15px; /* Espacio entre carrito y botón logout */
+    gap: 15px;
 }
 
-/* Estilo del link del carrito */
+
 .btn-cart {
     color: white;
     text-decoration: none;
@@ -256,7 +354,7 @@ a:hover {
     background-color: #5d6d7e;
 }
 
-/* Estilo del botón Logout */
+
 .btn-logout {
     background-color: #e74c3c;
     color: white;
@@ -271,7 +369,7 @@ a:hover {
     background-color: #c0392b;
 }
 
-/* Asegurar que el formulario no cree espacios raros */
+
 .form-logout {
     margin: 0;
 }

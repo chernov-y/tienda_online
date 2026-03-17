@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Tienda Online</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
+
 <body>
 
     <header class="navbar">
-    <div class="nav-left">
-        <h1>Online Store</h1>
-        <p>Welcome, <strong th:text="${session.userSession.name}">User</strong>!</p>
-    </div>
+        <div class="nav-left">
+            <h1>Online Store</h1>
 
-    <div class="nav-right">
-        <a th:href="@{/cart}" class="btn-cart">🛒 Ver mi carrito</a>
-        <form th:action="@{/logout}" method="post" class="form-logout">
-            <button type="submit" class="btn-logout">Logout</button>
-        </form>
-    </div>
-</header>
+            <p>Welcome, <strong th:text="${session.userSession.name}">User</strong>!</p>
+        </div>
+
+        <div class="nav-right">
+            <a th:href="@{/cart}" class="btn-cart">🛒 Show my cart</a>
+            <form th:action="@{/logout}" method="post" class="form-logout">
+                <button type="submit" class="btn-logout">Logout</button>
+            </form>
+        </div>
+    </header>
 
     <hr>
 
     <main>
-    <h2>Articles Catalog</h2>
+        <h2>Articles Catalog</h2>
 
-    <div th:if="${param.agregado}" class="alerta-exito fade-out">
-    ¡Artículo añadido al carrito correctamente! 🛒
-    </div>
-    <div class="contenedor-grid">
-    
-        
-    <div class="card-producto" th:each="art : ${listaArticulos}">
-        
-        <div class="imagen-box">
-            <img th:src="${art.url_img}" alt="Imagen del producto">
+        <div th:if="${param.agregado}" class="alerta-exito fade-out">
+            ¡Article added to cart correctly! 🛒
         </div>
-        
-        <h3 th:text="${art.name}">Name</h3>
-        <p class="descripcion-corta" th:text="${art.description}">
-        Aquí va una breve descripción del producto para atraer al cliente.
-    </p>
-        <p class="precio">Price: <span th:text="${art.price}">0</span>€</p>
+        <div class="contenedor-grid">
 
-        <form th:action="@{/cart/add}" method="post">
-            <input type="hidden" name="id" th:value="${art.id}">
-            <button type="submit">Añadir al carrito</button>
-        </form>
-        
-        
-    </div>
 
-</div>
-</main>
+            <div class="card-producto" th:each="art : ${listaArticulos}">
+
+                <div class="imagen-box">
+                    <img th:src="${art.url_img}" alt="Imagen del producto">
+                </div>
+
+                <h3 th:text="${art.name}">Name</h3>
+                <p class="descripcion-corta" th:text="${art.description}">
+                    Aquí va una breve descripción del producto para atraer al cliente.
+                </p>
+                <p class="precio">Price: <span th:text="${art.price}">0</span>€</p>
+
+                <form th:action="@{/cart/add}" method="post">
+                    <input type="hidden" name="id" th:value="${art.id}">
+                    <button type="submit">Add to cart</button>
+                </form>
+
+
+            </div>
+
+        </div>
+    </main>
 
 </body>
+
 </html>

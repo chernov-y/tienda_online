@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
+
+<head>
     <meta charset="UTF-8">
     <title>Cart</title>
     <link rel="stylesheet" th:href="@{/css/carrito-style.css}">
 </head>
+
 <body>
     <div class="carrito-wrapper">
-    <h2>Shopping Cart 🛒</h2>
+        <h2>Shopping Cart 🛒</h2>
 
-    <div th:if="${carrito != null and !carrito.empty}">
-        <table class="tabla-carrito">
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="item : ${carrito}">
-                    <td class="nombre-art" th:text="${item.name}">Item Name</td>
-                    <td class="precio-art" th:text="${item.price} + '€'">0.00€</td>
-                </tr>
-            </tbody>
-        </table>
+        <div th:if="${carrito != null and !carrito.empty}">
+            <table class="tabla-carrito">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${carrito}">
+                        <td class="nombre-art" th:text="${item.name}">Item Name</td>
+                        <td class="precio-art" th:text="${item.price} + '€'">0.00€</td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <div class="checkout-section">
-            <div class="total-box">
-                Total: <span th:text="${total}">0.00</span>€
+            <div class="checkout-section">
+                <div class="total-box">
+                    Total: <span th:text="${total}">0.00</span>€
+                </div>
+
+                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="sb-skgam49783212@business.example.com">
+                    <input type="hidden" name="item_name" value="Your Purchase at Demo Store">
+                    <input type="hidden" name="amount" th:value="${total}">
+                    <input type="hidden" name="currency_code" value="EUR">
+                    <button type="submit" class="btn-paypal">Pay with PayPal</button>
+                </form>
+
+
             </div>
-            
-            <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-                <input type="hidden" name="cmd" value="_xclick">
-                <input type="hidden" name="business" value="sb-skgam49783212@business.example.com">
-                <input type="hidden" name="item_name" value="Your Purchase at Demo Store">
-                <input type="hidden" name="amount" th:value="${total}">
-                <input type="hidden" name="currency_code" value="EUR">
-                <button type="submit" class="btn-paypal">Pay with PayPal</button>
-            </form>
-
-            
         </div>
-    </div>
 
-    <div th:if="${carrito == null or carrito.empty}" class="carrito-vacio">
-        <p>Your cart is empty.</p>
-    </div>
+        <div th:if="${carrito == null or carrito.empty}" class="carrito-vacio">
+            <p>Your cart is empty.</p>
+        </div>
 
-    <a th:href="@{/tienda}" class="btn-volver">← Back to Catalog</a>
-</div>
+        <a th:href="@{/tienda}" class="btn-volver">← Back to Catalog</a>
+    </div>
 </body>
+
 </html>

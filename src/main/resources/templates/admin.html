@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Panel de Administración</title>
     <link rel="stylesheet" th:href="@{/css/admin-style.css}">
 </head>
+
 <body>
 
     <nav class="navbar">
@@ -22,7 +24,7 @@
     </nav>
 
     <div class="content-container">
-        
+
         <div id="default-view" class="welcome-msg">
             <h2>Welcome to Panel de Control</h2>
             <p>Select an option from the top menu to begin.</p>
@@ -54,7 +56,7 @@
 
         <section id="articulos" class="admin-section">
             <h2>Articles Management</h2>
-            
+
             <div class="form-container">
                 <h3>Add New Article</h3>
                 <form th:action="@{/admin/add-article}" th:object="${newArticle}" method="post">
@@ -93,4 +95,5 @@
     </div>
 
 </body>
+
 </html>

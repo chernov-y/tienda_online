@@ -35,7 +35,6 @@ public class Controlador {
 
     @PostMapping("/register")
     public String registerProcess(User user, HttpSession session, HttpServletResponse response) {
-        //TODO: process POST request
 
         userRepository.save(user);
         
@@ -81,13 +80,13 @@ public class Controlador {
     
    @PostMapping("/login")
     public String loginProcess(@RequestParam String nick, @RequestParam String password, HttpSession session, Model model) {
-        // Buscamos en la tabla 'usuarios' de la base de datos 
+        
         User user = userRepository.findByNickAndPassword(nick, password);
 
         if (user != null) {
             session.setAttribute("userSession", user);
             
-            // Punto 6 Sesión 2: Si es admin, mostrar tabla de usuarios 
+           
             if ("admin".equals(user.getNick())&& "admin123".equals(user.getPassword())) {
                 return "redirect:/admin";
             }
@@ -98,16 +97,16 @@ public class Controlador {
         }
     }
 
-// Método para mostrar la tienda
+
 @GetMapping("/tienda")
 public String showTienda(HttpSession session, Model model) {
-    // Seguridad: Si no hay usuario en sesión, redirigir al login
+    
     if (session.getAttribute("userSession") == null) {
         return "redirect:/";
     }
 
     model.addAttribute("listaArticulos", articuloRepository.findAll());
-    return "tienda"; // Nombre del archivo HTML (tienda.html)
+    return "tienda"; 
 }
 
 @GetMapping("/admin")
@@ -179,11 +178,11 @@ public String showCart(HttpSession session, Model model){
 }
 
 
-// Método para cerrar sesión (Punto 5 del guion)
+
 @PostMapping("/logout")
 public String logout(HttpSession session) {
-    session.invalidate(); // Destruye la sesión actual
-    return "redirect:/";  // Vuelve al login
+    session.invalidate();
+    return "redirect:/";  
 }
     
     
