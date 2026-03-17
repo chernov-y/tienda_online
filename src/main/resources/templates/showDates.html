@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Datos del Usuario</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1>Datos guardados en la Sesión HTTP</h1>
+    <div th:if="${perfil != null}">
+        <p>Nick: <span th:text="${perfil.nick}"></span></p>
+        <p>Nombre: <span th:text="${perfil.name}"></span></p>
+        <p>Email: <span th:text="${perfil.email}"></span></p>
+    </div>
+    <div th:unless="${perfil != null}">
+        <p>No hay datos en la sesión.</p>
+    </div>
+    <br>
+    <a href="/register">Volver al registro</a>
+</body>
+</html>

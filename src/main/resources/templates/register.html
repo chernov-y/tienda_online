@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register of User</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <section>
+        <h1>Create Account</h1>
+        <p style="text-align: center; color: #666;">Enter your details to start shopping</p>
+        
+        <form th:action="@{/register}" th:object="${user}" method="post">
+            
+            <div class="form-group">
+                <label for="nick">Nickname</label>
+                <input type="text" id="nick" th:field="*{nick}" placeholder="Ex: JuanP88" required>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                <div style="flex: 1;">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" th:field="*{name}" placeholder="Your name" required>
+                </div>
+                <div style="flex: 1;">
+                    <label for="surname">Surname</label>
+                    <input type="text" id="surname" th:field="*{surname}" placeholder="Your surname" required>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                <div style="flex: 1;">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" th:field="*{age}" min="18" required>
+                </div>
+                <div style="flex: 2;">
+                    <label for="email">Email Adress</label>
+                    <input type="email" id="email" th:field="*{email}" placeholder="email@example.com" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" th:field="*{password}" placeholder="Minim 6 caracteres" required>
+            </div>
+
+            <button type="submit">Finish Registration</button>
+        </form>
+
+        <p style="text-align:center; margin-top:20px; font-size: 0.9rem;">
+            Already have an account? <a th:href="@{/}">Log In</a>
+        </p>
+    </section>
+
+</body>
+</html>

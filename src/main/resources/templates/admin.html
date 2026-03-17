@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" th:href="@{/css/admin-style.css}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">AdminPanel</div>
+        <ul class="nav-links">
+            <li><a href="#usuarios">Users</a></li>
+            <li><a href="#articulos">Articles</a></li>
+            <li><a th:href="@{/tienda}">Store</a></li>
+            <li>
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="logout-btn">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content-container">
+        
+        <div id="default-view" class="welcome-msg">
+            <h2>Welcome to Panel de Control</h2>
+            <p>Select an option from the top menu to begin.</p>
+        </div>
+
+        <section id="usuarios" class="admin-section">
+            <h2>User Management</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nick</th>
+                        <th>Name</th>
+                        <th>Surname</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="u : ${registeredUser}">
+                        <td th:text="${u.nick}"></td>
+                        <td th:text="${u.name}"></td>
+                        <td th:text="${u.surname}"></td>
+                        <td th:text="${u.age}"></td>
+                        <td th:text="${u.email}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="articulos" class="admin-section">
+            <h2>Articles Management</h2>
+            
+            <div class="form-container">
+                <h3>Add New Article</h3>
+                <form th:action="@{/admin/add-article}" th:object="${newArticle}" method="post">
+                    <input type="text" th:field="*{name}" placeholder="Name" required>
+                    <input type="number" step="0.01" th:field="*{price}" placeholder="Price (€)" required>
+                    <input type="text" th:field="*{url_img}" placeholder="URL Image">
+                    <input type="text" th:field="*{description}" placeholder="Description" rows="4">
+                    <button type="submit">Save Article</button>
+                </form>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="art : ${listaArticulos}">
+                        <td><img th:src="${art.url_img}" width="50"></td>
+                        <td th:text="${art.name}"></td>
+                        <td th:text="${art.price} + '€'"></td>
+                        <td th:text="${art.description}"></td>
+                        <td>
+                            <a th:href="@{/admin/delete/{id}(id=${art.id})}" class="delete-link">Borrar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+</body>
+</html>

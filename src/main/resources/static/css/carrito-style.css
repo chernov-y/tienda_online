@@ -1,0 +1,135 @@
+/* Configuración General */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Contenedor Principal */
+.carrito-wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+/* Tabla del Carrito */
+.tabla-carrito {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.tabla-carrito th {
+    background-color: #f8f9fa;
+    padding: 15px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: #777;
+    border-bottom: 2px solid #eee;
+}
+
+.tabla-carrito td {
+    padding: 20px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.nombre-art {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.precio-art {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* Sección de Total y Pago */
+.checkout-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+    padding: 20px;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    border: 1px dashed #ddd;
+}
+
+.total-box {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.total-box span {
+    color: #e67e22;
+}
+
+/* Botones */
+.btn-paypal {
+    background-color: #ffc439;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 196, 57, 0.3);
+}
+
+.btn-paypal:hover {
+    background-color: #f4b400;
+}
+
+.btn-vaciar {
+    background: none;
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.btn-vaciar:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-volver {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #3498db;
+    font-weight: 500;
+}
+
+.btn-volver:hover {
+    text-decoration: underline;
+}
+
+/* Estado Vacío */
+.carrito-vacio {
+    text-align: center;
+    padding: 50px;
+}
+
+.carrito-vacio p {
+    font-size: 1.2rem;
+    color: #999;
+}

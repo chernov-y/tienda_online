@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceso - Tienda Online</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <section>
+        <h1>Log In</h1>
+        <form th:action="@{/login}" method="post">
+            <div>
+                <label for="nick">User (Nick):</label>
+                <input type="text" id="nick" name="nick" required>
+            </div>
+            
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div th:if="${error}" style="color: red;">
+                <p th:text="${error}"></p>
+            </div>
+
+            <button type="submit">Sign In</button>
+        </form>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>¿Dont have an account?</h2>
+        <p>Register to make purchases and view offers.</p>
+        <a th:href="@{/register}">Go to Register Form</a>
+    </section>
+
+</body>
+</html>
