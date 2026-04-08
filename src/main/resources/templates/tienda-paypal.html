@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PayPal Direct Store</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=BAAwHkvsT_AS9zjHqJTFGl858hIf6m7A5Ut2S8lGp8HKnulwMcjVbQM2SQx2MJ85tkUVAJrZFFQz1Ar5WY&components=hosted-buttons&disable-funding=venmo&currency=EUR"></script>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="nav-left">
+            <h1>Online Store</h1>
+            <p>Welcome, <strong th:text="${session.userSession.name}">User</strong>!</p>
+        </div>
+        <div class="nav-right">
+            <a th:href="@{/tienda}" class="btn-nav">Database Shop</a>
+            <a th:href="@{/tienda-paypal}" class="btn-nav active">PayPal Shop</a>
+            <form th:action="@{/logout}" method="post" class="form-logout">
+                <button type="submit" class="btn-logout">Logout</button>
+            </form>
+        </div>
+    </header>
+
+    <main class="contenedor-grid">
+
+        <div class="card-producto">
+
+
+            <div id="paypal-container-YPKJD2FERDN7C"></div>
+            <script>
+                paypal.HostedButtons({
+                    hostedButtonId: "YPKJD2FERDN7C",
+                }).render("#paypal-container-YPKJD2FERDN7C")
+            </script>
+        </div>
+
+        <div class="card-producto">
+
+
+            <div id="paypal-container-US6HHCJ8HXXR6"></div>
+            <script>
+                paypal.HostedButtons({
+                    hostedButtonId: "US6HHCJ8HXXR6",
+                }).render("#paypal-container-US6HHCJ8HXXR6")
+            </script>
+        </div>
+
+        <div class="card-producto">
+
+
+            <div id="paypal-container-4MT9LBZ3RR93G"></div>
+            <script>
+                paypal.HostedButtons({
+                    hostedButtonId: "4MT9LBZ3RR93G",
+                }).render("#paypal-container-4MT9LBZ3RR93G")
+            </script>
+        </div>
+
+    </main>
+</body>
+
+</html>

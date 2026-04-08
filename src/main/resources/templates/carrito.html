@@ -32,14 +32,7 @@
                     Total: <span th:text="${total}">0.00</span>€
                 </div>
 
-                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-                    <input type="hidden" name="cmd" value="_xclick">
-                    <input type="hidden" name="business" value="sb-skgam49783212@business.example.com">
-                    <input type="hidden" name="item_name" value="Your Purchase at Demo Store">
-                    <input type="hidden" name="amount" th:value="${total}">
-                    <input type="hidden" name="currency_code" value="EUR">
-                    <button type="submit" class="btn-paypal">Pay with PayPal</button>
-                </form>
+                
 
 
             </div>

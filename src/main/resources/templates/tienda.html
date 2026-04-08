@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Tienda Online</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script src="https://www.paypalobjects.com/ncp/sb/cart/cart.js" data-merchant-id="EVM94F8LT3G48"></script>
 </head>
 
 <body>
@@ -16,8 +17,16 @@
             <p>Welcome, <strong th:text="${session.userSession.name}">User</strong>!</p>
         </div>
 
+        
+
         <div class="nav-right">
+
+            <a th:href="@{/tienda}" class="btn-nav">Database Shop</a>
+            <a th:href="@{/tienda-paypal}" class="btn-nav active">PayPal Shop</a>
+            
             <a th:href="@{/cart}" class="btn-cart">🛒 Show my cart</a>
+            <paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
+
             <form th:action="@{/logout}" method="post" class="form-logout">
                 <button type="submit" class="btn-logout">Logout</button>
             </form>
@@ -33,7 +42,6 @@
             ¡Article added to cart correctly! 🛒
         </div>
         <div class="contenedor-grid">
-
 
             <div class="card-producto" th:each="art : ${listaArticulos}">
 
@@ -51,6 +59,8 @@
                     <input type="hidden" name="id" th:value="${art.id}">
                     <button type="submit">Add to cart</button>
                 </form>
+
+                
 
 
             </div>
